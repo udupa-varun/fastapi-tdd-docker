@@ -117,7 +117,7 @@ jobs:
             --file ./project/Dockerfile.prod \
             "./project"
 
-      - name: Log in to Heroky Container Registry
+      - name: Log in to Heroku Container Registry
         run: docker login -u _ -p ${HEROKU_AUTH_TOKEN} registry.heroku.com
         env:
           HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
@@ -127,6 +127,7 @@ jobs:
 
       - name: Set environment variables
         run: |
+          echo "HEROKU_APP_NAME=${{ env.HEROKU_APP_NAME }} >> $GITHUB_ENV"
           echo "HEROKU_REGISTRY_IMAGE=${{ env.HEROKU_REGISTRY_IMAGE }} >> $GITHUB_ENV"
           echo "HEROKU_AUTH_TOKEN=${{ env.HEROKU_AUTH_TOKEN }} >> $GITHUB_ENV"
 
