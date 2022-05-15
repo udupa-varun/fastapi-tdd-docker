@@ -123,7 +123,7 @@ jobs:
           HEROKU_AUTH_TOKEN: ${{ secrets.HEROKU_AUTH_TOKEN }}
 
       - name: Push to the registry
-        run: docker push ${{ env.HEROKU_REGISTRY IMAGE }}
+        run: docker push ${{ env.HEROKU_REGISTRY_IMAGE }}
 
       - name: Set environment variables
         run: |
