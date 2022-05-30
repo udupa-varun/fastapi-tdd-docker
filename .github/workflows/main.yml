@@ -91,7 +91,7 @@ jobs:
             ${{ env.IMAGE }}-final:latest
 
       - name: Install requirements
-        run: docker exec fastapi-tdd pip install black==21.12b0 click==8.0.4 flake8==4.0.1 isort==5.10.1 pytest==6.2.5
+        run: docker exec fastapi-tdd sudo -H pip install black==21.12b0 click==8.0.4 flake8==4.0.1 isort==5.10.1 pytest==6.2.5
 
       - name: Pytest
         run: docker exec fastapi-tdd python -m pytest .
